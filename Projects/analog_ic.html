@@ -2,8 +2,9 @@
 <html>
     <head>
         <title>Projects</title>
-        <link rel="stylesheet" href="../style.css">
-        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+        <link rel="stylesheet" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto Mono'
+            rel='stylesheet'>
     </head>
     <body>
         <nav class="navbar">
@@ -11,5 +12,74 @@
                 <li><a href="../projects.html">Back</a></li>
             </ul>
         </nav>
-    </body>
-</html>
+        <div class="project_heading">
+            <h1>Sound Filtering Integrated Circuit</h1>
+            <img src="Images/analog_final_circuit.png">
+            <p>
+                This circuit was made as the final project for ECE 4530: Analog
+                Integrated Circuit Design (final submitted circuit shown above).
+                The goal of this project was to construct an audio based circuit
+                that will be able to output different voltage levels that
+                correspond to the amplitudes of the specific frequency ranges we
+                choose. The idea of this circuit setup is to be able to use the
+                output voltages as an indicator for applications such as LEDs
+                with visual aesthetics to match the music. Even beyond a light
+                show, there are speakers that use these kinds of circuits in
+                order to amplify the different frequency registers separately so
+                that the "loudness" of different frequencies as heard by the
+                human ear can be preserved.
+            </p>
+            <p>
+                This project was designed in Cadence Virtuoso, and since there
+                was no fabrication of the product, in-depth analyses of
+                simulatinos were performed on the circuits. My portion of the
+                project was the filter amplifier design for the frequency middle
+                range (250Hz-4kHz), as well as desigining the AC-DC convrters at
+                the output of each frequency filter in order to capture a
+                voltage level that corresponds to AC amplitude.
+            </p>
+        </div>
+        <main>
+            <p>
+                The schematic below is the RC amplifier that I designed for the
+                middle frequency range.
+            </p>
+            <img src="Images/rc_amp.png" class="small_img">
+            <p>
+                I designed this to be a singular amplifier to acheive second
+                order filtering at both the cutoff frequencies. The second order
+                filtering is achevied by taking advantage of the various signal
+                paths of the amplifier: input, output, and feedback paths.
+            </p>
+
+            <img src="Images/rectifier.png">
+            <p>
+                The schematic above shows my design of the AC-DC converter used
+                to extract the peak amplitudes of the filter's output. The
+                amplifier shown above is not actually included in the converter's
+                design, but it simply there to reperesent the input. The design
+                is a diode-bridge rectifier that takes advantage of the
+                unidirectional current flow of the diodes in order to extract
+                the positive voltage signal. The signal across the diode bridge
+                is then treated with a resistor and capacitor network in order
+                to smooth out the signal.
+            </p>
+            <p>
+                Through this project and the course in general, I gained
+                in-depth experience using Cadence Virtuoso to create both
+                schematics and layouts for integrated circuits, specifically for
+                signal amplifiers. I also learned how to verify designs using
+                the simulation software of the application, being able to
+                analyze circuits in the frequency and analog domain. Through
+                these simulations I've learned to be able to observe phenomena
+                that occur and be able to pinpoint their causes in the circuit.
+            </p>
+            <p>
+                For the final report for this proejt with an in-depth analysis
+                on each sub-circuit and their simulations, please download <a
+                    href="Files/Final Report.pdf"
+                    download>
+                    this pdf</a>!
+            </main>
+        </body>
+    </html>

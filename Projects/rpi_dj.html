@@ -15,15 +15,14 @@
         <div class="project_heading">
             <h1>RPi DJ</h1>
             <div class="row">
-                <iframe width="420" height="315"
-                    src="https://youtu.be/pHU6sa2pq2I" class="cover">
-                </iframe>
-                <!-- <img src="Images/rpi_dj_cover.jpeg" class="cover"> -->
+                <iframe width="640" height="360"
+                    src="https://www.youtube.com/embed/pHU6sa2pq2I"
+                    frameborder="0" allowfullscreen class="cover"></iframe>
                 <p>
                     This application was developed for the course ECE 5725:
-                    Deisgn with Embedded Operating Systems. The objectives
+                    Design with Embedded Operating Systems. The objectives
                     of the project were to synthesize clear audio playback
-                    using python to process the digital audio in the
+                    using Python to process the digital audio in the
                     Raspberry Pi. In addition, there would be an intuitive
                     user interface to display on the piTFT to control the
                     audio playback and dynamically adjust the audio.
@@ -37,53 +36,56 @@
             </p>
             <img src="Images/rpi_dj_sch.png">
             <p>
-                As shown, the the Raspberry Pi commuincates with the exterrnal
+                As shown, the Raspberry Pi communicates with the external
                 Digital to Analog Converter chip, so all the audio processing
                 occurs in the digital domain. The DAC directly outputs to
                 an audio jack connector, which then is connected to a set of
                 speakers.
             </p>
-            <h2>Design & Audio Processing</h2>
             <p>
-                Because the ultimate goal of this project is to manipulate the
-                audio to hear different frequency ranges at different volumes,
-                much of the audio processing occurs in the frequency domain. The
-                .wav files, however, that are loaded into the Python program,
-                hold their information in the time domain, thus requiring us to
-                apply a Fourier transform to the audio file to extract its
-                frequency spectrum. This was accomplished by splitting up the
-                song into chunks of time and running an FFT (using functions in
-                Python's numpy module) on that time chunk of time. These chunks
-                contain 1024 frames, and with a frame rate of 44100 frames per
-                second, means that these time chunks are about 20 milliseconds.
-                These frequency buckets are created for each time chunk in the
-                song at the beginning of the Python script when a song is
-                chosen.
+                Because the ultimate goal of this project is to manipulate
+                the audio to hear different frequency ranges at different
+                volumes, much of the audio processing occurs in the
+                frequency domain. The .wav files, however, that are loaded
+                into the Python program, hold their information in the time
+                domain, so the audio processing first applies an FFT on a
+                fixed number of samples, manipulates the audio in the
+                frequency domain, then applies an inverse FFT to achieve
+                back the audio in the time domain so that it can be
+                outputted to the DAC. The audio is processed in accordance with
+                the GUI in the piTFT that chooses the amplitudes of each
+                frequency bucket.
+            </p>
+            <img src="Images/playback_screen.jpg" class="small_img">
+            <p>
+                The GUI shown above is composed of bards that represent
+                the master volume and the volumes that correspond to the
+                specific frequency ranges to be controlled. The buttons on
+                either side of the bars will increase or decrease the volumes
+                indicated, and the point on the bar will shift corresponding to
+                that button press. The thread that runs the GUI and the thread
+                that processes and outputs the audio run in independent threads
+                such that the time requirements of the audio output is met and
+                the sound can be cohesive at the correct frequency. The GUI
+                communicates its information to the processing thread in order
+                to provide the sound level scalars required in the audio
+                processing.
             </p>
             <p>
-                The song plays by first applying an inverse FFT onto a frequency
-                bucket, which returns the time-domain representation of that
-                time chunk. Then, the script will go frame-by-frame in the
-                output time chunk from the inverse FFT, configure the bits for
-                the DAC, and output them to the DAC using SPI. This will reverse
-                for each frequency bucket that was created at the beginning of
-                the script. In order to manipulate the sounds of the audio
-                output, the frequency buckets are modulated before the inverse
-                FFT is applied. The audio manipulation is done by multiplying
-                the frequency bucket with an array of the same size. This
-                multiplication is element-wise, so the array that the frequency
-                bucket will be multiplied by represents an array of scalars that
-                will either increase or decrease the values at a given
-                frequency. For example, cutting out the high frequencies
-                requires a scalar array that is 1's for all frequencies lower
-                than 4000 Hz and 0's for frequencies above 4000 Hz. In this way,
-                the high-frequency range is removed from the frequency bucket,
-                but the magnitudes of the other frequencies stay the same.
-                Additionally, the frequencies can be multiplied by fractions in
-                order to decrease the magnitudes of the frequency ranges, but
-                not completely cut them out. The scalars for each frequency are
-                determined by the values that the interface reads.
+                Through this project, I gained experience in implementing simple
+                mechanisms in audio processing using Python. I also learned
+                different ways the numpy module can be used to acheive a variety
+                of mathematical computations. Additionally, becuaes of the
+                timing requirements with resepct to the frequency of the audio,
+                I was able to practice code optimization and discover different
+                ways in which the language can be leveraged in order to acheive
+                faster code.
             </p>
-        </main>
-    </body>
-</html>
+            <p>
+                For an in-depth report on this project, please visit the <a
+                    href="https://courses.ece.cornell.edu/ece5990/ECE5725_Spring2023_Projects/2%20Friday%20May%2012/4%20RPi%20DJ/M_jwt95_rjw252/M_jwt95_rjw252/index.html"
+                    target="_blank">
+                    project page</a> on Joe Skovira's ECE 5725 course website!
+            </main>
+        </body>
+    </html>

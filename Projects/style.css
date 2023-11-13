@@ -35,6 +35,10 @@ body {
     padding-bottom: 40px;
 }
 
+img {
+    width: 600px;
+}
+
 .row {
     display: flex;
     text-align: left;
@@ -79,7 +83,6 @@ nav a {
 .project_heading {
     width: 600px;
     margin: 0 auto;
-    padding-bottom: 20px;
 }
 
 .cover {
@@ -95,13 +98,15 @@ main {
 
 main img {
     width: 600px;
-    padding-bottom: 20px;
 }
 
 p {
     text-align: justify;
 }
 
-.space {
-    color: #f5ece6;
+.small_img {
+    width: 70%;
+    padding: 2.5%;
+    margin: 0 auto; /* Add this line to center the image */
+    display: block; /* Ensure it's a block-level element for margin auto to work */
 }

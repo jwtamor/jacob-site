@@ -37,11 +37,18 @@ body {
     /* border: 5px solid #020317; */
 }
 
+
+
+main p {
+    text-align: justify;
+}
+
 .row {
     display: flex;
     text-align: left;
     align-items: center;
     width: 600px;
+    margin: 0 auto;
 }
 
 .column {
@@ -166,8 +173,16 @@ img {
     display: flex;
     align-items: flex-start; /* Adjust the vertical alignment as needed */
     text-align: left;
-    margin-top: 40px;
-    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+#work li {
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+#calix {
+    margin-top: 10px;
 }
 
 .work_logo {
@@ -209,4 +224,11 @@ img {
 
 .project_card h1 {
     font-size: x-large;
+}
+
+.temp {
+    border: solid 1px;
+    width: 300px;
+    height: 200px;
+    margin: 20px;
 }
