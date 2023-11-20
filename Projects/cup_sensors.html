@@ -2,8 +2,9 @@
 <html>
     <head>
         <title>Projects</title>
-        <link rel="stylesheet" href="../style.css">
-        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+        <link rel="stylesheet" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto Mono'
+            rel='stylesheet'>
     </head>
     <body>
         <nav class="navbar">
@@ -11,5 +12,76 @@
                 <li><a href="../projects.html">Back</a></li>
             </ul>
         </nav>
+        <div class="project_heading">
+            <h1>C1C0 Robot Sensors System</h1>
+            <p>
+                This sensors system of my design was used for the C1C0 robot for
+                Cornell Cup Robotics Team (visit the <a
+                    href="https://cornellcuprobotics.com/">team website</a> to
+                learn more about the projects). The goal of this system was to
+                quickly and efficinetly collect sensor data from peripheral
+                microcontrollers, package that data, and transmit it to the
+                robot's main opearating system so that it can be used for object
+                detection and autonomous navigation purposes. The scope of my
+                work for this project was writing the firmware code that
+                collects, organizes, and transmits data to the robot's OS, as
+                well as write the Python code that abstracts the data collection
+                and decomposition into an API for software algorithms to use.
+            </p>
+            <img src="Images/sensors_schematic.png">
+            <img src="Images/sensors_breakout.png" class="x-small_img">
+            <p>
+                The figures above demonstrate the breakout board used for the
+                Teensy microcontroller and the associated wiring for the
+                connections of each sensors. The system is composed of one 360
+                degree LiDAR sensor, three strips of Terabee IR sensors, and one
+                IMU. Both the LiDAR and the IR sensors use UART to communicate
+                its information to the data collecting microcontroller, and the
+                IMU uses I2C. Additinoally, the Teensy uses UART to transmit its
+                information to the robot's OS.
+            </p>
+        </div>
+        <main>
+            <p>
+                The picture below shows a connectivity example between the LiDAR
+                sensor (top center), the robot's opearting system (top left),
+                and the sensor data collecting microcontroller (Teensy).
+            </p>
+            <img src="Images/lidar_example.png" class="small_img">
+            <p>
+                In the firmware, I designed the framework to collect the data
+                from each sensor and store it in thier respective arrays. After
+                this collection, the arrays would all be concatonated togther
+                such that the array has each sensor data listed one after the
+                other. Once collected, the data is encoded for UART transmission
+                using R2Protocol (an enocding and transmission strategy
+                developed by an alumnus of the team). This encoded data is then
+                sent to the robot's main operating system, which then uses
+                Python to decode that data and organize the large array into
+                separate, sensor specific arrays. To ensure simple access to
+                software algorithms, I also designed an API with simple callable
+                functions that ensure easy access to the data from specific
+                sensors.
+            </p>
+            <p>
+                My work on this project has helped me to gain an understanding
+                of the I2C and UART communication protocols, and specifically
+                learn how to debug these protocols. Additionally, this project
+                has allowed me to practice API development and code abstraction
+                in which I have learned how to best relay information in ways
+                that are useful. Along with this, I was able to strengthen my
+                communication skills by working in a team working toward the
+                same goal; this skill was especially refined for working with
+                interdisciplinary teams that do not necessarily have the same
+                technical expertise as the work that I am doing.
+            </p>
+            <p>
+                To see my end-of-semester documentation for this project with an
+                in-depth code description, please download <a
+                    href="Files/C1C0 Fall 2021 Documentation - Sensors.pdf"
+                    download>
+                    this pdf</a>!
+            </p>
+        </main>
     </body>
 </html>

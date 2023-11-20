@@ -141,9 +141,18 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
     background: rgba(0, 0, 0, 0.7);
     color: #f5ece6; /* Text color */
+}
+
+.text-overlay a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.text-overlay a:hover {
+    background-color: black;
 }
 
 .text-overlay h1, .text-overlay p {
