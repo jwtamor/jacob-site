@@ -1,0 +1,128 @@
+html {
+    background-image: url(Images/EE.png);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-attachment: fixed; /* Add this line to fix the background image */
+}
+
+html::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(Images/EE.png);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    /* filter: blur(5px); */
+    z-index: -1;
+    background-attachment: fixed; /* Add this line to fix the background image */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    /* background-color: #020317; */
+    overflow: hidden;
+    /* border-right: 1px solid #f5ece6; */
+    padding-right: -2px;
+}
+
+nav li {
+    padding: 10px 0;
+    border-right: 1px solid #f5ece6;
+    color: #f5ece6;
+    float:left;
+    font-family: 'Roboto Mono';
+}
+
+nav a {
+    color: #020317;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+body {
+    /* color: green; */
+    opacity: 1;
+    color: #020317;
+    background-color: #f5ece6;
+    max-width: 90%;
+    margin: auto;
+    margin-top: -2px;
+    padding-top: 3px;
+    /* padding-bottom: 100%; */
+    /* border: 5px solid #020317; */
+}
+
+
+main p {
+    text-align: justify;
+}
+
+main {
+    width: 95%;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    /* border: solid 1px; */
+}
+
+.row .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 3%;
+}
+
+.column p {
+    margin: 0;
+    margin-bottom: 5%;
+}
+
+.row .column img {
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+#food_description {
+    margin: auto;
+    width: 72%;
+    text-align: center;
+    font-size: x-large;
+}
+
+#gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+#gallery .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32%;
+    margin: 4px;
+}
+
+
+#gallery img {
+    width: 100%;
+    margin: 4px;
+}

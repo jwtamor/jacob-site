@@ -2,8 +2,9 @@
 <html>
     <head>
         <title>Projects</title>
-        <link rel="stylesheet" href="../style.css">
-        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+        <link rel="stylesheet" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto Mono'
+            rel='stylesheet'>
     </head>
     <body>
         <nav class="navbar">
@@ -11,5 +12,55 @@
                 <li><a href="../projects.html">Back</a></li>
             </ul>
         </nav>
+        <div class="project_heading">
+            <h1>Motion Reactive Game Controller</h1>
+            <div class="row">
+                <iframe width="640" height="360"
+                    src="https://www.youtube.com/embed/lMwnQWLJN1Y"
+                    frameborder="0" allowfullscreen class="cover"></iframe>
+                <p>
+                    This game remote was developed for the course ECE 3140:
+                    Embedded Operating Systems. The system is an expansion upon
+                    my final project for the course CS 1110: Introduction to
+                    Python, in which I coded a Frogger-like video game. The
+                    controller is designed such that there are tilts that
+                    control the frog's movements around the screen. For this
+                    project, the FRDM-KL46Z development board was used and
+                    programmed in C.
+                </p>
+            </div>
+        </div>
+        <main>
+            <p>
+                The video above displays the overview of the controller system.
+            </p>
+            <p>
+                This system takes advantage of the on-board IMU of the
+                FRDM-KL46Z development board. The program that runs on the board
+                constantly reads the IMU using an I2C bus, and detects the
+                tilting direction based on that IMU data. In order to avoid
+                repeating tilts upon movement, an FSM was implemented in the
+                tilting detection, analgous to a debouncing FSM for button
+                presses.
+            </p>
+            <p>
+                Because the actual video game is implemented in Python and run
+                from a computer, the FRDM-KL46Z transmits its information to the
+                computer. This is done using UART transmission, which is simple
+                to do because the cable used to program and power the board acts
+                as a viable serial line that the development board can
+                communicate with. This communication is done by sending a string
+                that corresponds to the direction of tilting, and the pyserial
+                module in python is able to read the computer's serial port and
+                retrieve the transmitted information.
+            </p>
+            <p>
+                For the final report deliverable on this project, please visit
+                my group's <a
+                    href="https://pages.github.coecis.cornell.edu/ece3140-sp22/dtv25-ens57-jwt95/"
+                    target="_blank">
+                    project page</a> on the ECE 3140 project website!
+            </p>
+        </main>
     </body>
 </html>
