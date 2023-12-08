@@ -115,6 +115,7 @@ nav a {
     padding: 10px 20px;
     text-decoration: none;
 }
+
 .image-container {
     font-family: 'Roboto Mono';
     /* margin-top: px; */
@@ -149,10 +150,6 @@ img {
 .text-overlay a {
     color: #ffffff;
     text-decoration: none;
-}
-
-.text-overlay a:hover {
-    background-color: black;
 }
 
 .text-overlay h1, .text-overlay p {
@@ -201,4 +198,32 @@ img {
     width: 300px;
     height: 200px;
     margin: 20px;
+}
+
+.contact_row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.logo_link {
+    height: 30px;
+    width: auto;
+    padding: 0px 7px;
+}
+
+span.project_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Ensure the container takes the full height */
+}
+
+span.project_card h1 {
+    text-align: center;
+    margin: 0;
+    font-size: xx-large;
 }
